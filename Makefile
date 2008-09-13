@@ -1,2 +1,2 @@
 all:
-	g++ -o js -I/opt/local/include -L/opt/local/lib -lonig *.cpp libv8.a
+	g++ -o js *.cpp libv8.a
