@@ -1,0 +1,38 @@
+-- DESCRIPTION --
+
+js is a JavaScript interpreter based on Google's V8 (http://code.google.com/apis/v8/).
+
+Among it's aims is also to provide a general-purpose standard library for JavaScript applications living outside web browsers.
+
+The code has only been tested on Mac OS X, but should work without hassle on all POSIX-compliant platforms.
+
+-- INSTRUCTIONS --
+
+1) Download and build V8 as per the instructions found here: http://code.google.com/apis/v8/build.html
+
+2) Build js: g++ -o js -I/path/to/v8/include /path/to/libv8.a *.cpp
+
+3) Run your JavaScript files with ./js yourfile.js.
+
+-- HELLO WORLD --
+
+Example:
+
+#!./js
+load("prelude.js");
+println("Hello World!");
+
+-- BASIC I/O --
+
+#!./js
+load("prelude.js");
+var file = IO.open("prelude.js");
+while (!file.eof) {
+	IO.stdout.write(file.read(100));
+}
+
+-- AUTHORS --
+
+V8 is made by the fabulous engineers over at Google, led by Lars Bak.
+
+The current version of js is written by Simon Ask Ulsnes.
