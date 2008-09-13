@@ -48,12 +48,3 @@ function p() {
 		println(arguments[i] !== undefined ? arguments[i].inspect() : "undefined");
 	}
 }
-
-function File(name, flags)
-{
-	this.name = name;
-	this.flags = flags;
-	this.io_open = function() {  }
-	flags = flags || "wr";
-}
-File.open = IO.open;
