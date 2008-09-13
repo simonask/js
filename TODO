@@ -1,6 +1,10 @@
 TODO
 ====
 
+* A build system! scons, automake, cmake, anything really.
+
+* Needs testing/porting on Windows platforms.
+
 * I/O library should support binary data. Currently, the String classes of V8 mangle binary data, so separate classes suitable for raw data should be used by the I/O methods.
 
 * File I/O is incomplete. Missing: file creation, touch, tmpfile, etc. Goal: Support any file operation in stdio.h.
