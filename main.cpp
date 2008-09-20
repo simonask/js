@@ -9,6 +9,7 @@ using namespace v8;
 using namespace std;
 
 #include "io.h"
+#include "process.h"
 
 Handle<Value> LoadScript(const char* file)
 {
@@ -50,6 +51,7 @@ int main (int argc, char const *argv[])
 	Context::Scope context_scope(context);
 	Handle<Object> global_obj(context->Global());
 	IO::initialize(global_obj);
+	Process::initialize(global_obj);
 	
 	Handle<Value> result = LoadScript(argv[1]);
 	
