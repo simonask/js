@@ -2,13 +2,14 @@
 
 load("prelude.js");
 
-var str = "";
-while (!IO.stdin.eof)
+var pid = Process.fork();
+println("hello from " + (pid ? pid.pid : 0));
+if (pid)
 {
-	str += IO.stdin.read(1024);
+	var result = pid.wait();
+	println("return with result: " + result);
 }
-println(str);
-
-println(str.constructor.name);
-
-println(false && "HEJSA");
+else
+{
+	Process.exit(123);
+}
