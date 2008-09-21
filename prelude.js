@@ -1,4 +1,4 @@
-Object.prototype.map_with_key = function(f) {
+Object.prototype.mapWithKey = function(f) {
 	var result = new Array();
 	for (var key in this) {
 		result[result.length] = f(key, this[key]);
@@ -16,7 +16,7 @@ Array.prototype.map = function(f) {
 };
 
 Object.prototype.inspect = function(json) {
-	var kv = this.map_with_key(function(k, v) { return k.toString() + ": " + v.inspect(json) });
+	var kv = this.mapWithKey(function(k, v) { return k.toString() + ": " + v.inspect(json) });
 	return "{" + kv.join(", ") + "}";
 };
 
