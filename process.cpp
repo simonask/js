@@ -47,9 +47,9 @@ static Handle<Value> js_process_exit(const Arguments& args)
 static Handle<Value> js_process_wait(const Arguments& args)
 {
 	pid_t pid = unwrap_pid(args.This());
-	int stat_loc;
-	waitpid(pid, &stat_loc, 0);
-	return Integer::New(stat_loc);
+	int status;
+	waitpid(pid, &status, 0);
+	return Integer::New(WEXITSTATUS(status));	// TODO: Support signals etc.
 }
 
 static void dummy_setter(Local<String>, const Local<Value>, const AccessorInfo&) {}
