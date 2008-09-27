@@ -6,6 +6,20 @@ Object.prototype.mapWithKey = function(f) {
 	return result;
 };
 
+Array.prototype.each = function(f) {
+	for (var i = 0; i < this.length; ++i) {
+		f(this[i]);
+	}
+	return this;
+}
+
+Array.prototype.eachWithIndex = function(f) {
+	for (var i = 0; i < this.length; ++i) {
+		f(this[i], i);
+	}
+	return this;
+}
+
 Array.prototype.map = function(f) {
 	var result = new Array();
 	for (var i = 0; i < this.length; ++i)
@@ -14,6 +28,19 @@ Array.prototype.map = function(f) {
 	}
 	return result;
 };
+
+Array.prototype.select = function(f) {
+	var result = new Array();
+	for (var i = 0; i < this.length; ++i) {
+		if (f(this[i]))
+			result.push(this[i]);
+	}
+	return result;
+}
+
+Array.prototype.reject = function(f) {
+	return this.select(function(a) { return !f(a); });
+}
 
 Object.prototype.inspect = function(json) {
 	var kv = this.mapWithKey(function(k, v) { return k.toString() + ": " + v.inspect(json) });
